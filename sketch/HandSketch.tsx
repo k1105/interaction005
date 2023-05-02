@@ -56,12 +56,14 @@ export const HandSketch = ({ handpose }: Props) => {
         p5.rotate((k * 2 * Math.PI) / 30);
         const index = k * 2;
         if (smoothedHandposeHistory.left[index].length !== 0) {
+          //描画
           const left_hand = smoothedHandposeHistory.left[index];
-          for (let i = 0; i < 4; i++) {
-            p5.ellipse(
+          for (let i = 0; i < 3; i++) {
+            p5.line(
               left_hand[i + 4 * fingerIndex].x - left_hand[0].x,
               left_hand[i + 4 * fingerIndex].y - left_hand[0].y,
-              10
+              left_hand[i + 1 + 4 * fingerIndex].x - left_hand[0].x,
+              left_hand[i + 1 + 4 * fingerIndex].y - left_hand[0].y
             );
           }
         }
